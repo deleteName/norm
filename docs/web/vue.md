@@ -498,4 +498,3 @@ if (true) {
 }
 console.log(name); 
 ```
-
