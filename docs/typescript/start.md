@@ -55,6 +55,13 @@ let what: any = '100块也不给'
 what = 100
 what = false
 ```
+### never
+重来不会出现的值， 常用于报错抛出
+``` ts
+let err = () => {
+    throw new Error('错误')
+}
+```
 
 ## 函数
 - typescript有话说：
@@ -315,11 +322,23 @@ function searchExtends (source: string, subString: string) {
 let mySearch: SearchFunc = searchExtends
 let mySearch2 = <SearchFunc>searchExtends
 
-let searchExtends2: SearchFunc = (source: string, subString: string) {
+let searchExtends2: SearchFunc = (source: string, subString: string) => {
     let result = source.search(subString);
     return result > -1;
 }
 ```
+### 属性兼容
+TypeScript结构化类型系统的基本规则是，如果x要兼容y，那么y至少具有与x相同的属性。比如：
+``` ts
+interface Named {
+    name: string;
+}
+
+let x: Named;
+let y = { name: 'Alice', location: 'Seattle' };
+x = y;
+```
+y必须包含名字是name的string类型成员。y满足条件，因此赋值正确。
 
 ## 命名空间
 命名空间（之前叫做“内部模块”），使用 module关键字来声明一个内部模块的地方都应该使用namespace关键字来替换。避免让新的使用者被相似的名称迷惑。
@@ -343,4 +362,169 @@ namespace Person2 {
 
 let space1 = new Person1.Girl()
 let space2 = new Person2.Girl()
+```
+## 声明文件
+#### Validation.d.ts
+在这个文件当中声明开头需要以declare开头，表示这个类的只读状态，它并不涉及逻辑校验，只是对参数及返回值进行校验
+``` ts
+declare namespace Validation {
+    export interface StringValidator {
+        isAcceptable(s: string): boolean;
+    }
+}
+```
+#### index.ts
+- 声明文件命名需要以.d.ts结尾
+- reference path="Validation.d.ts" - 这只是告诉了我们文件之间的依赖存在关系
+``` ts
+/// <reference path="Validation.d.ts" />
+namespace Validation {
+    const lettersRegexp = /^[A-Za-z]+$/;
+    // implements表示按照约定好的StringValidator进行实现
+    export class LettersOnlyValidator implements StringValidator {
+        isAcceptable(s: string) {
+            return lettersRegexp.test(s);
+        }
+    }
+}
+```
+## 模块解析
+相对导入是以/，./或../开头的。
+``` ts
+import Entry from "./components/Entry";
+import { DefaultHeaders } from "../constants/http";
+import "/mod";
+```
+所有其它形式的导入被当作非相对的。 
+``` ts
+import * as $ from "jQuery";
+import { Component } from "@angular/core";
+```
+
+## 路径映射
+TypeScript编译器通过使用tsconfig.json文件里的"paths"来支持这样的声明映射。 下面是一个如何指定 jquery的"paths"的例子。
+``` ts
+{
+    "compilerOptions": {
+        "baseUrl": ".", // This must be specified if "paths" is.
+        "paths": {
+        "jquery": ["node_modules/jquery/dist/jquery"] // 此处映射是相对于"baseUrl"
+        }
+    }
+}
+```
+工程结构如下如下：
+``` md
+projectRoot
+├── folder1
+│   ├── file1.ts (imports 'folder1/file2' and 'folder2/file3')
+│   └── file2.ts
+├── generated
+│   ├── folder1
+│   └── folder2
+│       └── file3.ts
+└── tsconfig.json
+```
+
+## 声明合并
+同名的接口将会自动合并到一起
+``` ts
+interface Box {
+    height: number;
+    width: number;
+}
+
+interface Box {
+    scale: number;
+}
+
+let box: Box = {height: 5, width: 6, scale: 10};
+```
+
+## 装饰器
+1. @name 来使用装饰器，使用后该装饰器下方的函数将会集成指定装饰器的内容
+2. 装饰器在使用上有两种
+- 使用方法
+单行使用
+``` ts
+@f @g x
+```
+- 多行使用
+``` ts
+@f
+@g
+x
+```
+3. 装饰器抛出函数参数分别为
+ - target - 原型对象
+ - propertyKey - 成员的名字
+ - descriptor - 成员的属性描述符
+    - configurable - 控制是否可以删除
+    - writable - 控制是否可以修改(赋值)
+    - enumerable - 控制是否可以枚举
+### 属性装饰
+```  ts
+class Point {
+    private _x: number;
+    private _y: number;
+    constructor(x: number, y: number) {
+        this._x = x;
+        this._y = y;
+    }
+
+    @configurable(false)
+    get x() { return this._x; }
+
+    @configurable(false)
+    get y() { return this._y; }
+}
+```
+将该属性设置不可删除
+``` ts
+function configurable(value: boolean) {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        descriptor.configurable = value;
+    };
+}
+```
+### 类装饰
+``` ts
+@sealed
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
+```
+使用函数定义装饰器，用[Object.seal](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/seal)方法对装饰数据进行密封防止添加新的信息
+``` ts
+function sealed(constructor: Function) {
+    Object.seal(constructor);
+    Object.seal(constructor.prototype);
+}
+```
+### 方法装饰
+``` ts
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    @enumerable(false)
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
+```
+修改对象的enumerable将其变为不可迭代属性
+``` ts
+function enumerable(value: boolean) {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        descriptor.enumerable = value;
+    };
+}
 ```
