@@ -33,5 +33,3 @@ vscode 点击终端 => 运行生成任务 => tsc: 构建 - tsconfig.json 来编�
 var a = 'Hello TypeScript';
 console.log(a);
 ```
-
-嗯，全是干的，不多BB，后面会直接贴出代码段，让大家体验到CV级快感。

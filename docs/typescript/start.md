@@ -443,9 +443,8 @@ let box: Box = {height: 5, width: 6, scale: 10};
 
 ## 装饰器
 1. @name 来使用装饰器，使用后该装饰器下方的函数将会集成指定装饰器的内容
-2. 装饰器在使用上有两种
-- 使用方法
-单行使用
+2. 装饰器在使用上有两种使用方法
+- 单行使用
 ``` ts
 @f @g x
 ```
@@ -459,7 +458,7 @@ x
  - target - 原型对象
  - propertyKey - 成员的名字
  - descriptor - 成员的属性描述符
-    - configurable - 控制是否可以删除
+    - configurable - 控制是否可以删除   
     - writable - 控制是否可以修改(赋值)
     - enumerable - 控制是否可以枚举
 ### 属性装饰
