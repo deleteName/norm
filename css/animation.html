@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>animation | 前端组</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/norm/assets/css/0.styles.8177c4e6.css" as="style"><link rel="preload" href="/norm/assets/js/app.2eec1ef9.js" as="script"><link rel="preload" href="/norm/assets/js/2.a86883a0.js" as="script"><link rel="preload" href="/norm/assets/js/8.bab449a7.js" as="script"><link rel="preload" href="/norm/assets/js/3.19d6dc7c.js" as="script"><link rel="prefetch" href="/norm/assets/js/10.7607c5e8.js"><link rel="prefetch" href="/norm/assets/js/11.91bea08c.js"><link rel="prefetch" href="/norm/assets/js/12.b5643af0.js"><link rel="prefetch" href="/norm/assets/js/13.e1e9d0bb.js"><link rel="prefetch" href="/norm/assets/js/14.85d1c866.js"><link rel="prefetch" href="/norm/assets/js/15.7e5d2cf8.js"><link rel="prefetch" href="/norm/assets/js/16.086b2f9c.js"><link rel="prefetch" href="/norm/assets/js/17.a97c8e3e.js"><link rel="prefetch" href="/norm/assets/js/4.fd1d9323.js"><link rel="prefetch" href="/norm/assets/js/5.4280ea18.js"><link rel="prefetch" href="/norm/assets/js/6.996d1137.js"><link rel="prefetch" href="/norm/assets/js/7.74f0df55.js"><link rel="prefetch" href="/norm/assets/js/9.6e2122da.js">
+    <link rel="stylesheet" href="/norm/assets/css/0.styles.8177c4e6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/norm/" class="home-link router-link-active"><!----> <span class="site-name">前端组</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/norm/web/" class="nav-link">
+  代码规范
+</a></div><div class="nav-item"><a href="/norm/typescript/" class="nav-link">
+  TypeScript
+</a></div><div class="nav-item"><a href="/norm/css/" class="nav-link router-link-active">
+  CSS
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/norm/web/" class="nav-link">
+  代码规范
+</a></div><div class="nav-item"><a href="/norm/typescript/" class="nav-link">
+  TypeScript
+</a></div><div class="nav-item"><a href="/norm/css/" class="nav-link router-link-active">
+  CSS
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>CSS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/norm/css/" class="sidebar-link">简介</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/norm/css/animation.html" class="active sidebar-link">animation</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/norm/css/animation.html#flip" class="sidebar-link">FLIP</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="animation"><a href="#animation" class="header-anchor">#</a> animation</h1> <h2 id="flip"><a href="#flip" class="header-anchor">#</a> FLIP</h2> <div class="css-flip"><div class="wrap"><div class="img-wrap"><img src="/norm/assets/img/test-image (1).f8cc05a0.jpg"></div><div class="img-wrap"><img src="/norm/assets/img/test-image (2).8f96e45f.jpg"></div><div class="img-wrap"><img src="/norm/assets/img/test-image (3).582808b8.jpg"></div><div class="img-wrap"><img src="/norm/assets/img/test-image (4).9c75bbd6.jpg"></div><div class="img-wrap"><img src="/norm/assets/img/test-image (5).f2bc6e68.jpg"></div><div class="img-wrap"><img src="/norm/assets/img/test-image (6).dcb16980.jpg"></div><div class="img-wrap"><img src="/norm/assets/img/test-image (7).8654c16f.jpg"></div><div class="img-wrap"><img src="/norm/assets/img/test-image (8).0e5cc1d9.jpg"></div></div> <button>乱序</button></div> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>css-flip<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!-- 基础节点 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>wrap<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item in imgList<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>img-wrap<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>imgRef<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token comment">&lt;!-- 事件按钮 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>random<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>乱序<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            imgList<span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">'/test-image (1).jpg'</span><span class="token punctuation">,</span>
+                <span class="token string">'/test-image (2).jpg'</span><span class="token punctuation">,</span>
+                <span class="token string">'/test-image (3).jpg'</span><span class="token punctuation">,</span>
+                <span class="token string">'/test-image (4).jpg'</span><span class="token punctuation">,</span>
+                <span class="token string">'/test-image (5).jpg'</span><span class="token punctuation">,</span>
+                <span class="token string">'/test-image (6).jpg'</span><span class="token punctuation">,</span>
+                <span class="token string">'/test-image (7).jpg'</span><span class="token punctuation">,</span>
+                <span class="token string">'/test-image (8).jpg'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function">getBounding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>imgRef<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">node</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword">let</span> rect <span class="token operator">=</span> node<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">let</span> <span class="token punctuation">{</span> top<span class="token punctuation">,</span> left <span class="token punctuation">}</span> <span class="token operator">=</span> rect
+                <span class="token keyword">return</span> <span class="token punctuation">{</span> top<span class="token punctuation">,</span> left <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>imgList<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.5</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">mounted</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 保存图片节点</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>imgRef <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>imgRef
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function">imgList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> prevPositions <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBounding</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword">let</span> currentPositions <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBounding</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+                <span class="token keyword">this</span><span class="token punctuation">.</span>imgRef<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">imgRef<span class="token punctuation">,</span> imgIndex</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// 当前图片前后位置偏移坐标计算</span>
+                    <span class="token keyword">const</span> currentPosition <span class="token operator">=</span> currentPositions<span class="token punctuation">[</span>imgIndex<span class="token punctuation">]</span>
+                    <span class="token keyword">const</span> prevPosition <span class="token operator">=</span> prevPositions<span class="token punctuation">[</span>imgIndex<span class="token punctuation">]</span>
+                    <span class="token keyword">const</span> invert <span class="token operator">=</span> <span class="token punctuation">{</span>
+                        left<span class="token operator">:</span> prevPosition<span class="token punctuation">.</span>left <span class="token operator">-</span> currentPosition<span class="token punctuation">.</span>left<span class="token punctuation">,</span>
+                        top<span class="token operator">:</span> prevPosition<span class="token punctuation">.</span>top <span class="token operator">-</span> currentPosition<span class="token punctuation">.</span>top<span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span>
+
+                    <span class="token comment">// 第一步动画偏移至之前位置，然后再回到应有位置</span>
+                    <span class="token keyword">const</span> keyframes <span class="token operator">=</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            transform<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>invert<span class="token punctuation">.</span>left<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>invert<span class="token punctuation">.</span>top<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span> transform<span class="token operator">:</span> <span class="token string">&quot;translate(0)&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">]</span>
+
+                    <span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+                        duration<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+                        easing<span class="token operator">:</span> <span class="token string">&quot;cubic-bezier(0,0,0.32,1)&quot;</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span>
+
+                    <span class="token keyword">const</span> animation <span class="token operator">=</span> imgRef<span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span>keyframes<span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">.wrap</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token selector">;
+    .img-wrap</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 25%<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+        <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+        <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token selector">;
+        img</span> <span class="token punctuation">{</span>
+            <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+            <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #dddddd<span class="token punctuation">;</span>
+            <span class="token property">border-radius</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span></code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/norm/css/" class="prev router-link-active">
+        简介
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/norm/assets/js/app.2eec1ef9.js" defer></script><script src="/norm/assets/js/2.a86883a0.js" defer></script><script src="/norm/assets/js/8.bab449a7.js" defer></script><script src="/norm/assets/js/3.19d6dc7c.js" defer></script>
+  </body>
+</html>
