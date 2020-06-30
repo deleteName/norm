@@ -22,6 +22,7 @@ module.exports = {
     nav: [
       { text: "代码规范", link: "../web/" },
       { text: "TypeScript", link: "../typescript/" },
+      { text: "CSS", link: "../css/" },
     ],
     sidebar: {
       "/web/": [
@@ -47,6 +48,17 @@ module.exports = {
             "../typescript/",
             "../typescript/introduction",
             "../typescript/start",
+          ],
+        },
+      ],
+      "/css/": [
+        {
+          title: "CSS",
+          collapsable: false,
+          sidebarDepth: 2,
+          children: [
+            "../css/",
+            "../css/animation",
           ],
         },
       ],
